@@ -12,7 +12,7 @@ import br.com.caelum.vraptor.Path;
 public class HelloController {
 
 	@Inject
-	private MyLogger logger;
+	private MyCustomLogger logger;
 	
 	@Path("/index")
 	public String index() {

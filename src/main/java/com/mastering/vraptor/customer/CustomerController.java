@@ -1,4 +1,4 @@
-package com.mastering.vraptor.controller;
+package com.mastering.vraptor.customer;
 
 import javax.inject.Inject;
 

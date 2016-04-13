@@ -14,6 +14,12 @@
 		LastName
 		<input type="text" name="hoster.lastName"/><br/>
 		
+		NickName
+		<input type="text" name="hoster.nickName"/><br/>
+		
+		Description
+		<input type="text" name="hoster.informations.description"/><br/>
+		
 		<input type="submit" value="Save"/>
 	</form>
 </body>

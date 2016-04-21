@@ -3,7 +3,7 @@ package com.mastering.vraptor.logger;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
-import com.mastering.vraptor.jpa.infra.JPAUtil;
+import com.mastering.vraptor.jpa.infra.EntityManagerProducer;
 import com.mastering.vraptor.logger.MyCustomLogger;
 
 import br.com.caelum.vraptor.Controller;
@@ -17,7 +17,7 @@ public class HelloController {
 	
 	@Path("/index")
 	public String index() {
-		EntityManager manager = new JPAUtil().getEntityManager();
+		EntityManager manager = new EntityManagerProducer().getInstance();
 		manager.close();
 		logger.log("VRaptor is working with JPA configured!");
 		

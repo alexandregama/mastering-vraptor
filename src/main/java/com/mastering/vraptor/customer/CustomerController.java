@@ -43,6 +43,7 @@ public class CustomerController {
 	@Path("/customers")
 	public void save(Customer customer) {
 		customers.saveNew(customer);
+		result.redirectTo(CustomerController.class).show();
 	}
 	
 }

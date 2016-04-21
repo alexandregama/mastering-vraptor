@@ -20,7 +20,7 @@
 	
 	<div>
 		<c:forEach items="${customers}" var="c">
-			Firstname: ${c.firstName}
+			Firstname: ${c.firstName} <br/>
 		</c:forEach>		
 	</div>
 </body>

@@ -7,6 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-	Its Working
+	${uploadSuccess}
+	
+	<form action="${linkTo[ImageUploadController].upload}" enctype="multipart/form-data" method="post">
+		<input type="file" name="image"/><br/>
+		
+		<input type="submit" value="Upload File"/>
+	</form>
 </body>
 </html>

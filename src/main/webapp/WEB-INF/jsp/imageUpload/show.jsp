@@ -36,8 +36,8 @@
 	
 	Upload a file using Ajax and sending to S3 <br>
 	<form enctype="multipart/form-data" method="post">
-		<input id="fileupload" type="file" name="image" data-url="images/upload/ajax/s3" multiple>
+		<input id="fileupload-ajax-s3" type="file" name="image" data-url="images/upload/ajax/s3" multiple>
 	</form>
-	<img id="image-uploaded" src=""><br/>
+	<img id="image-uploaded-to-s3" src=""><br/>
 </body>
 </html>

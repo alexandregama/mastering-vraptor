@@ -17,22 +17,19 @@
 		${uploadSuccess}
 	</div>
 	
-	<p>
 	Upload a file in a simple form <br>
 	<form action="${linkTo[ImageUploadController].upload}" enctype="multipart/form-data" method="post">
 		<input type="file" name="image"/><br/><br/>
 		
 		<input type="submit" value="Upload this File"/>
 	</form>
-	<p>
 	
-	------------------------------------------------- <br/>
+	------------------------------------------------- <br/><br/>
 	
-	<p>
 	Upload a file in a simple form <br>
 	<form enctype="multipart/form-data" method="post">
 		<input id="fileupload" type="file" name="image" data-url="images/upload/ajax" multiple>
 	</form>
-	</p>
+	<img id="image-uploaded" src=""><br/>
 </body>
 </html>

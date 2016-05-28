@@ -52,7 +52,7 @@ public class ImageUploadController {
 		sucessMessage.put("message", "sucess");
 		Gson gson = new Gson();
 		String json = gson.toJson(sucessMessage);
-		System.out.println(sucessMessage);
+		
 		result.use(json()).withoutRoot().from(json).serialize();
 	}
 	

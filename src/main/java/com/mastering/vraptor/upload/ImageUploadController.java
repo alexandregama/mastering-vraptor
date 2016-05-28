@@ -47,11 +47,13 @@ public class ImageUploadController {
 		
 		FileUploadedSaver.save(image).onPath("/tmp/procurando-ape/").withName(image.getFileName());
 		
-		Map<String, String> sucess = new HashMap<>();
-		sucess.put("message", "sucess");
+		Map<String, String> sucessMessage = new HashMap<>();
+		sucessMessage.put("filePath", "/tmp/procurando-ape/" + image.getFileName());
+		sucessMessage.put("message", "sucess");
 		Gson gson = new Gson();
-		String json = gson.toJson(sucess);
-		result.use(json()).from(json).serialize();
+		String json = gson.toJson(sucessMessage);
+		System.out.println(sucessMessage);
+		result.use(json()).withoutRoot().from(json).serialize();
 	}
 	
 }

@@ -8,7 +8,8 @@ $(function () {
             });
         },
 	    success: function (e, data) {
-	    	alert("Its working!");
+	    	var obj = JSON.parse(e);
+	    	console.log(data);
 	    	$.each(data.result.files, function (index, file) {
 	    		$('<p/>').text(file.name).appendTo(document.body);
 	    	});

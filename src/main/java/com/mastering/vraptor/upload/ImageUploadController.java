@@ -19,6 +19,9 @@ import br.com.caelum.vraptor.observer.upload.UploadedFile;
 @Controller
 public class ImageUploadController {
 	
+	private static final String UPLOADED_IMAGES_PATH = "/Users/developer/java/workspace/mastering-vraptor/src/main/webapp/uploaded-images/";
+	private static final String IMAGES_PATH = "uploaded-images/";
+	
 	@Inject
 	private Result result;
 	
@@ -35,7 +38,7 @@ public class ImageUploadController {
 	
 	@Post("/images/upload")
 	public void upload(UploadedFile image) {
-		FileUploadedSaver.save(image).onPath("/tmp/procurando-ape/").withName(image.getFileName());
+		FileUploadedSaver.save(image).onPath(UPLOADED_IMAGES_PATH).withName(image.getFileName());
 		
 		result.include("uploadSuccess", "Upload Success");
 		result.redirectTo(this).show();
@@ -43,12 +46,23 @@ public class ImageUploadController {
 	
 	@Post("/images/upload/ajax")
 	public void uploadAjax(UploadedFile image) {
-		System.out.println(String.format("Image to be uploaded: {}", image.getFileName()));
-		
-		FileUploadedSaver.save(image).onPath("/tmp/procurando-ape/").withName(image.getFileName());
+		FileUploadedSaver.save(image).onPath(UPLOADED_IMAGES_PATH).withName(image.getFileName());
 		
 		Map<String, String> sucessMessage = new HashMap<>();
-		sucessMessage.put("filePath", "/tmp/procurando-ape/" + image.getFileName());
+		sucessMessage.put("filePath", IMAGES_PATH + image.getFileName());
+		sucessMessage.put("message", "sucess");
+		Gson gson = new Gson();
+		String json = gson.toJson(sucessMessage);
+		
+		result.use(json()).withoutRoot().from(json).serialize();
+	}
+	
+	@Post("/images/upload/ajax/s3")
+	public void uploadAjaxToAmazonS3(UploadedFile image) {
+		FileUploadedSaver.save(image).onPath(UPLOADED_IMAGES_PATH).withName(image.getFileName());
+		
+		Map<String, String> sucessMessage = new HashMap<>();
+		sucessMessage.put("filePath", UPLOADED_IMAGES_PATH + image.getFileName());
 		sucessMessage.put("message", "sucess");
 		Gson gson = new Gson();
 		String json = gson.toJson(sucessMessage);

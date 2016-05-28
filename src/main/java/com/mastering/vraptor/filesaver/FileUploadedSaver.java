@@ -1,10 +1,11 @@
 package com.mastering.vraptor.filesaver;
 
+import static org.apache.commons.io.IOUtils.copy;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
-import org.apache.commons.io.IOUtils;
+import java.io.InputStream;
 
 import br.com.caelum.vraptor.observer.upload.UploadedFile;
 
@@ -36,13 +37,15 @@ public class FileUploadedSaver {
 			
 			public void withName(String fileName) {
 				try {
-					IOUtils.copy(uloadedFile.getFile(), new FileOutputStream(new File(imageOnPath + fileName)));
+					FileOutputStream fileOnDesiredDirectory = new FileOutputStream(new File(imageOnPath + fileName));
+					InputStream uploadedFileByUser = uloadedFile.getFile();
+					
+					copy(uploadedFileByUser, fileOnDesiredDirectory);
 				} catch (IOException e) {
 					throw new RuntimeException(String.format("Error while trying to upload a new image", uloadedFile.getFileName()), e);
 				}			
 			}
 		}
 	}
-	
 
 }

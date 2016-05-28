@@ -26,9 +26,17 @@
 	
 	------------------------------------------------- <br/><br/>
 	
-	Upload a file in a simple form <br>
+	Upload a file using Ajax <br>
 	<form enctype="multipart/form-data" method="post">
 		<input id="fileupload" type="file" name="image" data-url="images/upload/ajax" multiple>
+	</form>
+	<img id="image-uploaded" src=""><br/>
+	
+	------------------------------------------------- <br/><br/>
+	
+	Upload a file using Ajax and sending to S3 <br>
+	<form enctype="multipart/form-data" method="post">
+		<input id="fileupload" type="file" name="image" data-url="images/upload/ajax/s3" multiple>
 	</form>
 	<img id="image-uploaded" src=""><br/>
 </body>

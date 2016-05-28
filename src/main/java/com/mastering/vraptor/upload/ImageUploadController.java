@@ -2,8 +2,12 @@ package com.mastering.vraptor.upload;
 
 import static br.com.caelum.vraptor.view.Results.json;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.inject.Inject;
 
+import com.google.gson.Gson;
 import com.mastering.vraptor.filesaver.FileUploadedSaver;
 
 import br.com.caelum.vraptor.Controller;
@@ -43,7 +47,11 @@ public class ImageUploadController {
 		
 		FileUploadedSaver.save(image).onPath("/tmp/procurando-ape/").withName(image.getFileName());
 		
-		result.use(json()).from("{file:my-file.png}");
+		Map<String, String> sucess = new HashMap<>();
+		sucess.put("message", "sucess");
+		Gson gson = new Gson();
+		String json = gson.toJson(sucess);
+		result.use(json()).from(json).serialize();
 	}
 	
 }

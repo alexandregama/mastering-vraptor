@@ -9,20 +9,7 @@
 	<script src="js/jquery.ui.widget.js"></script>
 	<script src="js/jquery.iframe-transport.js"></script>
 	<script src="js/jquery.fileupload.js"></script>
-	
-	<script>
-	$(function () {
-	    $('#fileupload').fileupload({
-	        dataType: 'json',
-	        done: function (e, data) {
-	        	alert("Its working!");
-	            $.each(data.result.files, function (index, file) {
-	                $('<p/>').text(file.name).appendTo(document.body);
-	            });
-	        }
-	    });
-	});
-	</script>	
+	<script src="js/upload-file.js"></script>
 	
 </head>
 <body>
@@ -41,8 +28,11 @@
 	
 	------------------------------------------------- <br/>
 	
+	<p>
+	Upload a file in a simple form <br>
 	<form enctype="multipart/form-data" method="post">
 		<input id="fileupload" type="file" name="image" data-url="images/upload/ajax" multiple>
 	</form>
+	</p>
 </body>
 </html>

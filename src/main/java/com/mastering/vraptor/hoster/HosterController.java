@@ -2,7 +2,7 @@ package com.mastering.vraptor.hoster;
 
 import javax.inject.Inject;
 
-import com.mastering.vraptor.jpa.infra.Transactional;
+import com.mastering.vraptor.jpa.Transactional;
 
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Get;

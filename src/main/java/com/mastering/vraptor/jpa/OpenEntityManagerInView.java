@@ -1,4 +1,4 @@
-package com.mastering.vraptor.jpa.infra;
+package com.mastering.vraptor.jpa;
 
 import javax.inject.Inject;
 import javax.interceptor.AroundInvoke;

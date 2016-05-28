@@ -1,4 +1,4 @@
-package com.mastering.vraptor.jpa.infra;
+package com.mastering.vraptor.jpa;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

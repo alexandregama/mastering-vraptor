@@ -1,5 +1,7 @@
 package com.mastering.vraptor.upload;
 
+import static br.com.caelum.vraptor.view.Results.json;
+
 import javax.inject.Inject;
 
 import com.mastering.vraptor.filesaver.FileUploadedSaver;
@@ -33,6 +35,15 @@ public class ImageUploadController {
 		
 		result.include("uploadSuccess", "Upload Success");
 		result.redirectTo(this).show();
+	}
+	
+	@Post("/images/upload/ajax")
+	public void uploadAjax(UploadedFile image) {
+		System.out.println(String.format("Image to be uploaded: {}", image.getFileName()));
+		
+		FileUploadedSaver.save(image).onPath("/tmp/procurando-ape/").withName(image.getFileName());
+		
+		result.use(json()).from("{file:my-file.png}");
 	}
 	
 }

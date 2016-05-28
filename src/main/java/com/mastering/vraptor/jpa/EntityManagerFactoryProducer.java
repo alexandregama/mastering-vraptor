@@ -1,4 +1,4 @@
-package com.mastering.vraptor.jpa.infra;
+package com.mastering.vraptor.jpa;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Disposes;

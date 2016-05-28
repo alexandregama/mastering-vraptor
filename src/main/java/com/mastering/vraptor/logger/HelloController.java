@@ -3,7 +3,7 @@ package com.mastering.vraptor.logger;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
-import com.mastering.vraptor.jpa.infra.EntityManagerProducer;
+import com.mastering.vraptor.jpa.EntityManagerProducer;
 import com.mastering.vraptor.logger.MyCustomLogger;
 
 import br.com.caelum.vraptor.Controller;
